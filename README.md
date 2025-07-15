@@ -10,12 +10,14 @@ A Bash script for organizing music files by artist and album using metadata tags
 
 Clone the repo and copy the script to your path:
 
-```bash
+```
 git clone https://github.com/MJKagone/music-organizer.git
 cd music-organizer
 chmod u+x music-organizer.sh
 cp music-organizer.sh ~/.local/bin/music-organizer # or wherever you store your scripts
+```
 
 ## Usage
-```bash
+```
 music-organizer <input_directory> <output_directory>
+```
