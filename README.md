@@ -21,3 +21,8 @@ cp music-organizer.sh ~/.local/bin/music-organizer # or whatever folder included
 ```
 music-organizer <input_directory> <output_directory>
 ```
+
+## Possible improvements:
+
+- [ ] Custom processing (or skipping) for non-audio files: currently moved to "Unknown artist"
+- [ ] Performance optimization / switching `ffprobe` for another tool: takes ~10 minutes to process ~1000 files
