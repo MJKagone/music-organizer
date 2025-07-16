@@ -19,17 +19,17 @@ Output directory after running the script:
 ```
 Output directory/
 ├── Linkin Park/
-│   ├── Hybrid Theory/
-│   │   ├── In the End.mp3
+│   └── Hybrid Theory/
+│       └── In the End.mp3
 ├── Evanescence/
-│   ├── Fallen/
-│   │   ├── Bring Me to Life.mp3
-│   │   ├── My Immortal.mp3
+│   └── Fallen/
+│       ├── Bring Me to Life.mp3
+│       └── My Immortal.mp3
 ├── Nightwish/
-│   ├── Once/
-│   │   ├── Nemo.mp3
+│   └── Once/
+│       └── Nemo.mp3
 ├── Unknown artist/
-│   ├── Original_recording.mp3
+│   └── Original_recording.mp3
 ```
 
 (Full disclosure: the simpler script in the `prototypes/` folder is how far I got by myself before letting GPT take the wheel and vibe coding the recursive search and string sanitization.)
