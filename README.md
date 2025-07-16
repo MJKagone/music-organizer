@@ -1,6 +1,8 @@
 # Music Organizer
 
-A Bash script I wrote for organizing my messy audio files by artist and album using metadata tags via `ffprobe`. Searches recursively through the specified directory and moves every audio file into "artist/album/" (creating folders as necessary) based on the tags found, or into "Unknown artist" if not found. 
+A Bash script I wrote for organizing my messy audio files by artist and album using metadata tags via `ffprobe`. Searches recursively through the specified directory and moves every audio file into "artist/album/" (creating folders as necessary) based on the tags found, or into "Unknown artist" if not found.
+
+(Confession: the simpler script in the `prototypes` folder is how far I got by myself before letting GPT take the wheel and vibe coding the rest.)
 
 ## Dependencies
 
