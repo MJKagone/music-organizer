@@ -20,11 +20,9 @@ organize_music() {
         echo "Usage: organize_music <input_directory> <output_directory>"
         return 1
     fi
-
-    mkdir -p "$output/Unknown artist"
-
+    
     declare -A created_dirs
-
+    
     current_dir=""
 
     while IFS= read -r -d '' file; do
@@ -36,7 +34,7 @@ organize_music() {
             current_dir="$dir"
             echo "Moving files from $current_dir..."
         fi
-        
+
         # Get the first artist and album tags found
         artist=$(get_artist "$file" | cut -d';' -f1)
         album=$(get_album "$file" | cut -d';' -f1)
@@ -48,8 +46,8 @@ organize_music() {
         album="${album%"${album##*[![:space:]]}"}"
 
         # Sanitize by dropping problematic characters
-        safe_artist=$(echo "$artist" | tr -d '/:*?"<>|')
-        safe_album=$(echo "$album" | tr -d '/:*?"<>|')
+        safe_artist=$(echo "$artist" | tr -d '/\\:*?"<>|')
+        safe_album=$(echo "$album" | tr -d '/\\:*?"<>|')
 
         # If no artist tag, move to "Unknown artist" folder
         if [[ -z "$safe_artist" ]]; then
@@ -68,7 +66,22 @@ organize_music() {
             created_dirs["$dest"]=1
         fi
 
-        mv "$file" "$dest"
+        # Prepare filename and extension
+        filename=$(basename "$file")
+        base="${filename%.*}"
+        ext="${filename##*.}"
+        destination="$dest/$filename"
+
+        # Handle collisions
+        counter=1
+        while [[ -e "$destination" ]]; do
+            echo -e "\033[31mWarning:\033[0m collision at $destination. Renaming file."
+            destination="$dest/${base}-$counter.$ext"
+            ((counter++))
+        done
+
+        # Move the file safely
+        mv "$file" "$destination"
 
     done < <(find "$input" -type f -print0)
 }
