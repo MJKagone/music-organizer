@@ -32,8 +32,6 @@ Output directory/
     └── Original_recording.wav
 ```
 
-(Full disclosure: the simpler script in the `prototypes/` folder is how far I got by myself before letting GPT take the wheel and vibe coding the recursive search and string sanitization.)
-
 ## Dependencies
 
 - `ffprobe`: part of [ffmpeg](https://ffmpeg.org/download.html), `sudo apt install ffmpeg` on Ubuntu
@@ -54,7 +52,7 @@ cp music-organizer.sh ~/.local/bin/music-organizer # or whatever folder included
 music-organizer <input_directory> <output_directory>
 ```
 
-## Possible improvements:
+## Potential improvements:
 
-- [ ] Custom processing (or skipping) for non-audio files: currently moved to `Unknown artist/`
+- [ ] Custom processing (or skipping) for non-audio files: currently moved to `Unknown artist/` since no tags are found
 - [ ] Performance optimization / switching `ffprobe` for another tool: takes ~10 minutes to process ~1000 files
