@@ -11,7 +11,7 @@ Input directory/
 │   └── Bring Me to Life.flac
 ├── Nemo.mp3
 ├── My Immortal.mp3
-├── Original_recording.wav
+└── Original_recording.wav
 ```
 
 Output directory after running the script:
@@ -28,8 +28,8 @@ Output directory/
 ├── Nightwish/
 │   └── Once/
 │       └── Nemo.mp3
-├── Unknown artist/
-│   └── Original_recording.wav
+└── Unknown artist/
+    └── Original_recording.wav
 ```
 
 (Full disclosure: the simpler script in the `prototypes/` folder is how far I got by myself before letting GPT take the wheel and vibe coding the recursive search and string sanitization.)
