@@ -49,13 +49,16 @@ organize_music() {
         safe_artist=$(echo "$artist" | tr -d '/\\:*?"<>|')
         safe_album=$(echo "$album" | tr -d '/\\:*?"<>|')
 
-        # If no artist tag, move to "Unknown artist" folder
-        if [[ -z "$safe_artist" ]]; then
-            dest="$output/Unknown artist"
-        # Else if no album tag, move to artist folder
-        elif [[ -z "$safe_album" ]]; then
+        # No artist or album tag -> move to "Unknown artist/"
+        if [[ (-z "$safe_artist") && (-z "$safe_album") ]]; then
+            dest="$output/Unknown artist/"
+        # Album tag but no artist -> move to "Unknown artist/album/"
+        elif [[ (-z "$safe_artist") && (-n "$safe_album") ]]; then
+            dest="$output/Unknown artist/$safe_album"
+        # Artist tag but no album -> move to "artist/"
+        elif [[ (-n "$safe_artist") && (-z "$safe_album") ]]; then
             dest="$output/$safe_artist"
-        # Else move to artist/album folder
+        # Both tags found -> move to "artist/album/"
         else
             dest="$output/$safe_artist/$safe_album"
         fi
